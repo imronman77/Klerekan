@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Klerek Clone - Vercel</title>
+</head>
+<body>
+  <h2>Upload ZIP & Hitung Setoran</h2>
+  <input type="file" id="file" accept=".zip" />
+  <button onclick="upload()">Upload</button>
+  <pre id="out"></pre>
+
+  <script>
+    async function upload() {
+      const f = document.getElementById('file').files[0];
+      if (!f) return alert('Pilih file .zip');
+
+      const buf = await f.arrayBuffer();
+      const resp = await fetch('/api/upload', { method: 'POST', body: buf });
+      const data = await resp.json();
+      document.getElementById('out').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>

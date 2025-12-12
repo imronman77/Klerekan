@@ -1,0 +1,8 @@
+{
+  "name": "klerek-vercel-clone",
+  "version": "1.0.0",
+  "dependencies": {
+    "sqlite3": "^5.1.6",
+    "unzipper": "^0.10.11"
+  }
+}
